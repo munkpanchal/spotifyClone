@@ -1,0 +1,33 @@
+.left-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    @include mobile {
+        flex-direction: row;
+    }
+    .top {
+        @include mobile {
+            width: 90%;
+        }
+    }
+    .playlist {
+        width: 100%;
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            .category {
+                text-transform: capitalize;
+                font-size: 20px;
+                cursor: pointer;
+
+                &:not(.active) {
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}

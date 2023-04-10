@@ -1,0 +1,67 @@
+.mobile-bar {
+    @include mobile {
+        position: fixed;
+        top: 90%;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+        padding: 2rem;
+        background: $background; // display: none;
+        transition: all 0.5s ease-in-out;
+        .heading {
+            font-size: 1.5rem !important;
+            width: max-content;
+        }
+        &.active {
+            top: 0%;
+        }
+        &:not(.active) {
+            padding: 1rem;
+            .player {
+                display: flex;
+                align-items: center;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-direction: row;
+                .song-profile,
+                .song-controls {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+                }
+
+                .song-profile {
+                    order: 1;
+                    img {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+                .song-info {
+                    flex: 3;
+                    order: 2;
+                    margin: 0;
+                }
+                .song-controls {
+                    order: 3;
+                }
+            }
+
+            .progress-bar {
+                display: none;
+            }
+            .icon-button {
+                display: none;
+                &.white {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

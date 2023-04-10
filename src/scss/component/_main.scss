@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+    @include mobile {
+        flex-direction: column;
+        min-height: 100vh;
+        height: 100%;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        justify-content: flex-start;
+    }
+    background: linear-gradient(
+            108.18deg,
+            rgba(51, 66, 94, 0.6) 2.46%,
+            rgba(0, 0, 0, 0.6) 99.84%
+        ),
+        #000000;
+    color: white;
+    .left-bar {
+        flex: 5;
+    }
+    .middle-bar {
+        flex: 7.5;
+        @include mobile {
+            order: 2;
+            flex: 2;
+        }
+    }
+    .right-bar {
+        flex: 14.5;
+        @include mobile {
+            order: 1;
+            // padding: 2rem;
+        }
+    }
+}
