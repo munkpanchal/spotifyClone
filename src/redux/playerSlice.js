@@ -7,6 +7,7 @@ const initialState = {
         "id": 1,
         "title": "For You"
     },
+    searchQuery: "",
     allSongs: [
         {
             "_id": "61b6f14dc2f7cafd968c31f0",
@@ -136,8 +137,11 @@ export const playerSlice = createSlice({
         setVolume: (state, action) => {
             state.volume = action.payload;
         },
+        setSearchQuery: (state, action) => {
+            state.searchQuery = action.payload;
+        },
     }
 
 });
-export const { setCurrentPlaylist, setCurrentSong, setPlayPause, setNextSong, setVolume, setAudioProgress, setAllSongs, setMobileCollapse } = playerSlice.actions;
+export const { setCurrentPlaylist, setCurrentSong, setPlayPause, setNextSong, setVolume, setSearchQuery, setAudioProgress, setAllSongs, setMobileCollapse } = playerSlice.actions;
 export default playerSlice.reducer;

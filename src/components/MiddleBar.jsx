@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Songs from "./Songs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery } from "../redux/playerSlice";
 
 const MiddleBar = () => {
-    const [inp, setInp] = useState("");
+    const dispatch = useDispatch();
     const currentPlaylist = useSelector(
         (state) => state.player.currentPlaylist
     );
     const handleSearch = (e) => {
-        setInp((val) => (val = e.target.value));
-        console.log(inp);
+        dispatch(setSearchQuery(e.target.value));
     };
     return (
         <div className="middle-bar">
@@ -23,7 +23,7 @@ const MiddleBar = () => {
                 />
             </div>
 
-            <Songs searchInp={inp} />
+            <Songs />
         </div>
     );
 };

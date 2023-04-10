@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCurrentSong, setPlayPause } from "../redux/playerSlice";
 import Loader from "./Loader";
 
-const Songs = ({ searchInp }) => {
+const Songs = () => {
+    const searchInp = useSelector((state) => state.player.searchQuery);
     const dispatch = useDispatch();
 
     const currentPlaylist = useSelector(
@@ -18,7 +19,7 @@ const Songs = ({ searchInp }) => {
     }
     if (data) {
         let allSongs = data.getSongs;
-        if (searchInp) {
+        if (searchInp !== "") {
             allSongs = allSongs.filter((val) => {
                 if (
                     val.artist.toLowerCase().includes(searchInp) ||
