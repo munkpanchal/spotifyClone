@@ -1,4 +1,7 @@
 .mobile-bar {
+    @include desktop {
+        display: none;
+    }
     @include mobile {
         position: fixed;
         top: 90%;
