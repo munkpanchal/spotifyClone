@@ -22,7 +22,9 @@ const Songs = ({ searchInp }) => {
             allSongs = allSongs.filter((val) => {
                 if (
                     val.artist.toLowerCase().includes(searchInp) ||
-                    val.title.toLowerCase().includes(searchInp)
+                    val.title.toLowerCase().includes(searchInp) ||
+                    val.artist.toLocaleLowerCase().includes(searchInp) ||
+                    val.title.toLocaleLowerCase().includes(searchInp)
                 ) {
                     return val;
                 }
