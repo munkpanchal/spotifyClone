@@ -7,12 +7,10 @@ const ProgressBar = ({ playerRef }) => {
     const songInfo = useSelector((state) => state.player.currentSong);
     const dispatch = useDispatch();
     const handleAudioProgress = (e) => {
-        // console.log(e.target.value);
         let completDuration = songInfo.duration;
         let currentTiming = Number(e.target.value);
         playerRef.current.currentTime = currentTiming;
         dispatch(setAudioProgress(currentTiming));
-        console.log(audioProgress);
     };
 
     return (

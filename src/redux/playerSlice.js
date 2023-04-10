@@ -106,6 +106,7 @@ const initialState = {
         "title": "Starboy",
         "url": "https://storage.googleapis.com/similar_sentences/Imagine%20Dragons%20-%20West%20Coast%20(Pendona.com).mp3"
     },
+    volume: .75,
     isPlaying: false,
     audioProgress: 0
 };
@@ -132,9 +133,11 @@ export const playerSlice = createSlice({
         setMobileCollapse: (state, action) => {
             state.mobileCollapse = action.payload;
         },
-        setPrevSong: (state, action) => { },
+        setVolume: (state, action) => {
+            state.volume = action.payload;
+        },
     }
 
 });
-export const { setCurrentPlaylist, setCurrentSong, setPlayPause, setNextSong, setPrevSong, setAudioProgress, setAllSongs, setMobileCollapse } = playerSlice.actions;
+export const { setCurrentPlaylist, setCurrentSong, setPlayPause, setNextSong, setVolume, setAudioProgress, setAllSongs, setMobileCollapse } = playerSlice.actions;
 export default playerSlice.reducer;

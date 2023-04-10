@@ -4,7 +4,7 @@
     }
     @include mobile {
         position: fixed;
-        top: 90%;
+        top: 88%;
         left: 0;
 
         width: 100vw;
@@ -18,6 +18,9 @@
         }
         &.active {
             top: 0%;
+            .player {
+                height: 60vh;
+            }
         }
         &:not(.active) {
             padding: 1rem;

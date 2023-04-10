@@ -12,9 +12,11 @@ function Player() {
     const [song, setSong] = useState();
     const audioProgress = useSelector((state) => state.player.audioProgress);
     const currentSong = useSelector((state) => state.player.currentSong);
+    const isPlaying = useSelector((state) => state.player.isPlaying);
+    const volume = useSelector((state) => state.player.volume);
+
     const playerRef = useRef(null);
     const dispatch = useDispatch();
-    const isPlaying = useSelector((state) => state.player.isPlaying);
 
     const mobileCollapse = useSelector((state) => state.player.mobileCollapse);
 
@@ -70,6 +72,7 @@ function Player() {
                     controls
                     autoPlay={isPlaying ? true : false}
                     src={song}
+                    volume={volume}
                     onTimeUpdate={handleTimeUpdate}
                 />
                 <div className="wrapper">

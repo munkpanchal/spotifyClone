@@ -24,7 +24,11 @@ const Playlist = () => {
     };
 
     if (loading) {
-        return <Loader />;
+        return (
+            <div className="loader-div">
+                <Loader />
+            </div>
+        );
     }
     if (data) {
         const playlists = data["getPlaylists"];

@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setVolume } from "../../redux/playerSlice";
 
-const VolumeSlider = ({ playerRef, isActive, setVolumeActive }) => {
-    const [volume, setVolume] = useState(75);
+const VolumeSlider = ({ playerRef, isActive }) => {
+    const volume = useSelector((state) => state.player.volume);
+    const dispatch = useDispatch();
+
     const handleVolumeProgress = (e) => {
-        playerRef.current.volume = volume / 100;
-        setVolume(Number(e.target.value));
+        let currentVolume = Number(e.target.value);
+        currentVolume = currentVolume / 100;
+        playerRef.current.volume = currentVolume;
+        dispatch(setVolume(currentVolume));
     };
 
     return (
@@ -12,7 +18,7 @@ const VolumeSlider = ({ playerRef, isActive, setVolumeActive }) => {
             <input
                 type="range"
                 className="volume-bar"
-                value={volume}
+                value={volume * 100}
                 onChange={handleVolumeProgress}
                 onClick={handleVolumeProgress}
             />

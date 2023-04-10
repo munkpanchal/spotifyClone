@@ -3,3 +3,11 @@
     font-weight: 700;
     text-transform: capitalize;
 }
+
+.loader-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
