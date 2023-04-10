@@ -26,9 +26,7 @@ function Player() {
     };
 
     const handleMobileCollapse = () => {
-        console.log(mobileCollapse);
         let newMobileCollapse = !mobileCollapse;
-        console.log(newMobileCollapse);
         dispatch(setMobileCollapse(newMobileCollapse));
     };
 

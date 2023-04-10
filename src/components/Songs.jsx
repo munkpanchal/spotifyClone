@@ -30,7 +30,6 @@ const Songs = () => {
                     return val;
                 }
             });
-            console.log(allSongs);
         }
 
         const handleCurrentSong = (e) => {
