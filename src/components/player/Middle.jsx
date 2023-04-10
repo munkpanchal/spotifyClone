@@ -2,7 +2,6 @@ import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa";
 import { IconButton, IconButtonWhite } from "./IconButtons";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentSong, setPlayPause } from "../../redux/playerSlice";
-import { useState } from "react";
 
 const Middle = ({ playerRef }) => {
     const dispatch = useDispatch();
@@ -10,10 +9,13 @@ const Middle = ({ playerRef }) => {
     const allSongs = useSelector((state) => state.player.allSongs);
     const currentSong = useSelector((state) => state.player.currentSong);
 
-    const handlePlayPause = () => {
-        let action = !isPlaying;
-        isPlaying ? playerRef.current.pause() : playerRef.current.play();
-        dispatch(setPlayPause(action));
+    const handlePlay = () => {
+        playerRef.current.play();
+        dispatch(setPlayPause(true));
+    };
+    const handlePause = () => {
+        playerRef.current.pause();
+        dispatch(setPlayPause(false));
     };
     const handleNext = () => {
         const currentSongIndex = allSongs.findIndex(
@@ -43,9 +45,15 @@ const Middle = ({ playerRef }) => {
             <IconButton className="prev-button" onClick={handlePrev}>
                 <FaBackward />
             </IconButton>
-            <IconButtonWhite className="play-button" onClick={handlePlayPause}>
-                {isPlaying ? <FaPause /> : <FaPlay />}
-            </IconButtonWhite>
+            {isPlaying ? (
+                <IconButtonWhite className="play-button" onClick={handlePause}>
+                    <FaPause />
+                </IconButtonWhite>
+            ) : (
+                <IconButtonWhite className="play-button" onClick={handlePlay}>
+                    <FaPlay />
+                </IconButtonWhite>
+            )}
             <IconButton className="next-button" onClick={handleNext}>
                 <FaForward />
             </IconButton>

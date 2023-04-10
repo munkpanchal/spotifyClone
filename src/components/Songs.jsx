@@ -24,7 +24,6 @@ const Songs = ({ searchInp }) => {
                     val.artist.toLowerCase().includes(searchInp) ||
                     val.title.toLowerCase().includes(searchInp)
                 ) {
-                    // console.log();
                     return val;
                 }
             });

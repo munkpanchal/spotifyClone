@@ -9,8 +9,7 @@ function App() {
             <main className="main">
                 <LeftBar />
                 <MiddleBar />
-                <RightBar />
-                <MobileBar />
+                {window.innerWidth > 600 ? <RightBar /> : <MobileBar />}
             </main>
         </>
     );
